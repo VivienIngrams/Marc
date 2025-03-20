@@ -1,14 +1,12 @@
 import '@/styles/index.css'
 import {CustomPortableText} from '@/components/CustomPortableText'
 import {Navbar} from '@/components/Navbar'
-import IntroTemplate from '@/intro-template'
 import {sanityFetch, SanityLive} from '@/sanity/lib/live'
 import {homePageQuery, settingsQuery} from '@/sanity/lib/queries'
 import {urlForOpenGraphImage} from '@/sanity/lib/utils'
 import type {Metadata, Viewport} from 'next'
 import {toPlainText, VisualEditing, type PortableTextBlock} from 'next-sanity'
 import {draftMode} from 'next/headers'
-import {Suspense} from 'react'
 import {Toaster} from 'sonner'
 import {handleError} from './client-functions'
 import {DraftModeToast} from './DraftModeToast'
@@ -59,9 +57,7 @@ export default async function IndexRoute({children}: {children: React.ReactNode}
             />
           )}
         </footer>
-        <Suspense>
-          {/* <IntroTemplate /> */}
-        </Suspense>
+        
       </div>
       <Toaster />
       <SanityLive onError={handleError} />
